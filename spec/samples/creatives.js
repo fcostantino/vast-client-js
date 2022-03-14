@@ -46,6 +46,16 @@ export const creatives = `<Creatives>
             <IconClickThrough><![CDATA[http://example.com/linear-clickthrough]]></IconClickThrough>
             <IconClickTracking id='icon-click-1'><![CDATA[http://example.com/linear-clicktracking1]]></IconClickTracking>
             <IconClickTracking id='icon-click-2'><![CDATA[http://example.com/linear-clicktracking2]]></IconClickTracking>
+            <IconClickFallbackImages>
+              <IconClickFallbackImage width="950" height="600">
+                <AltText>
+                  <![CDATA[ This ad was shown to you based on: * Google's estimation of your interests, based on your activity on Google on this device (for example, your searches) * the information on the website you were viewing. ]]>
+                </AltText>
+                <StaticResource creativeType="image/png">
+                  <![CDATA[https://storage.googleapis.com/interactive-media-ads/hosted-samples/wta/icon_adchoices_fallback_image.png]]>
+                </StaticResource>
+              </IconClickFallbackImage>
+          </IconClickFallbackImages>
           </IconClicks>
         </Icon>
       </Icons>
