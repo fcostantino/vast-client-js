@@ -1271,6 +1271,18 @@
           url: parserUtils.parseNodeText(iconClickTrackingElement)
         });
       });
+      var iconFallbackImages = parserUtils.childByName(iconClicksElement, 'IconClickFallbackImages');
+
+      if (iconFallbackImages) {
+        iconFallbackImages.forEach(function (iconFallbackImage) {
+          var image = parserUtils.childrenByName(iconFallbackImage, 'StaticResource');
+          var text = parserUtils.childrenByName(iconFallbackImage, 'AltText');
+          icon.iconFallbackImages.push({
+            text: parserUtils.parseNodeText(text),
+            image: parserUtils.parseNodeText(image)
+          });
+        });
+      }
     }
 
     icon.iconViewTrackingURLTemplate = parserUtils.parseNodeText(parserUtils.childByName(iconElement, 'IconViewTracking'));
