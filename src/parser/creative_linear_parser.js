@@ -308,21 +308,20 @@ function parseIcon(iconElement) {
             });
         const iconFallbackImages = parserUtils.childByName(iconClicksElement, 'IconClickFallbackImages');
         if (iconFallbackImages) {
-            iconFallbackImages.forEach((iconFallbackImage) => {
 
-                let image = parserUtils
-                    .childrenByName(iconFallbackImage, 'StaticResource')
+            const iconFallbackImage = parserUtils.childByName(iconFallbackImages, 'IconClickFallbackImage');
+            console.log(iconFallbackImage)
+            const image = parserUtils
+                .childByName(iconFallbackImage, 'StaticResource')
+            const text = parserUtils
+                .childByName(iconFallbackImage, 'AltText')
 
-                let text = parserUtils
-                    .childrenByName(iconFallbackImage, 'AltText')
-
-                icon.iconFallbackImages.push({
-                    text: parserUtils.parseNodeText(text),
-                    image: parserUtils.parseNodeText(image),
-                })
-
-            })
+            icon.iconFallbackImage = {
+                text: parserUtils.parseNodeText(text),
+                image: parserUtils.parseNodeText(image),
+            };
         }
+
     }
 
     icon.iconViewTrackingURLTemplate = parserUtils.parseNodeText(

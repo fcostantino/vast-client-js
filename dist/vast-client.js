@@ -1274,14 +1274,14 @@
       var iconFallbackImages = parserUtils.childByName(iconClicksElement, 'IconClickFallbackImages');
 
       if (iconFallbackImages) {
-        iconFallbackImages.forEach(function (iconFallbackImage) {
-          var image = parserUtils.childrenByName(iconFallbackImage, 'StaticResource');
-          var text = parserUtils.childrenByName(iconFallbackImage, 'AltText');
-          icon.iconFallbackImages.push({
-            text: parserUtils.parseNodeText(text),
-            image: parserUtils.parseNodeText(image)
-          });
-        });
+        var iconFallbackImage = parserUtils.childByName(iconFallbackImages, 'IconClickFallbackImage');
+        console.log(iconFallbackImage);
+        var image = parserUtils.childByName(iconFallbackImage, 'StaticResource');
+        var text = parserUtils.childByName(iconFallbackImage, 'AltText');
+        icon.iconFallbackImage = {
+          text: parserUtils.parseNodeText(text),
+          image: parserUtils.parseNodeText(image)
+        };
       }
     }
 
